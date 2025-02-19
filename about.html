@@ -4,65 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
     <style>
-        body {
+        /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    text-align: center;
-    padding: 20px;
 }
 
-header {
-    background-color: #333;
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #333;
     color: white;
-    padding: 15px;
-    border-radius: 5px;
 }
 
-h1, h2 {
-    color: #444;
+.nav-links {
+    list-style: none;
+    display: flex;
 }
 
-button {
-    background-color: #008CBA;
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
     color: white;
-    border: none;
-    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
 }
 
-button:hover {
-    background-color: #005f73;
+/* About Section */
+.about {
+    text-align: center;
+    padding: 50px 20px;
+    background: #f4f4f4;
 }
 
+.about h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
     </style>
 </head>
 <body>
-    <header>
-        <h1>About Us</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Who We Are</h2>
-            <p>We are a passionate team dedicated to providing great content and services.</p>
-            <button id="changeTextBtn">Click to Change Text</button>
-            <p id="dynamicText">This text will change when you click the button.</p>
-        </section>
-    </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-    const button = document.getElementById("changeTextBtn");
-    const text = document.getElementById("dynamicText");
 
-    button.addEventListener("click", function() {
-        text.textContent = "You clicked the button! The text has changed.";
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="footer.html"></a>Fotter</li>
+        </ul>
+        <div class="hamburger">
+            ☰
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about">
+        <h1>About Us</h1>
+        <p>Welcome to our website! We are dedicated to providing the best service possible.</p>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", function () {
+        navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
     });
 });
 
     </script>
+
 </body>
 </html>
+

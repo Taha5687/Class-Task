@@ -5,21 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
     <style>
-        body {
+        /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
     background-color: #f4f4f4;
     text-align: center;
     padding: 20px;
 }
 
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #333;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Header */
 header {
     background-color: #333;
     color: white;
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
+/* Button */
 button {
     background-color: #008CBA;
     color: white;
@@ -27,21 +70,74 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
 button:hover {
     background-color: #005f73;
 }
 
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
     </style>
 </head>
 <body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="footer.html">Footer</a></li>
+        </ul>
+        <div class="hamburger">☰</div>
+    </nav>
+
+    <!-- Header -->
     <header>
         <h1>Welcome to My Website</h1>
     </header>
+
+    <!-- Main Content -->
     <main>
         <p>This is a simple webpage with HTML and CSS.</p>
-        <button>Click Me</button>
+        <button onclick="alert('Button Clicked!')">Click Me</button>
     </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", function () {
+        navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+    });
+});
+
+    </script>
+
 </body>
 </html>

@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
     <style>
+            .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #333;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
         body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -60,6 +83,19 @@ footer {
     </style>
 </head>
 <body>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="footer.html">Footer</a></li>
+        </ul>
+        <div class="hamburger">☰</div>
+    </nav>
+
     <div class="content">
         <h1>Welcome to Our Website</h1>
         <p>Scroll down to see the footer.</p>

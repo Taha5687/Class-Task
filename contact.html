@@ -7,24 +7,50 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
     <style>
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #333;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
         body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     text-align: center;
     padding: 20px;
 }
-
 header {
     background-color: #333;
     color: white;
     padding: 15px;
     border-radius: 5px;
 }
-
 h1, h2 {
     color: #444;
 }
-
 form {
     max-width: 400px;
     margin: 20px auto;
@@ -33,13 +59,11 @@ form {
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-
 label {
     display: block;
     text-align: left;
     margin-top: 10px;
 }
-
 input, textarea {
     width: 100%;
     padding: 8px;
@@ -47,7 +71,6 @@ input, textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
 button {
     background-color: #008CBA;
     color: white;
@@ -57,20 +80,29 @@ button {
     font-size: 16px;
     margin-top: 10px;
 }
-
 button:hover {
     background-color: #005f73;
 }
-
 #responseMessage {
     margin-top: 10px;
     font-weight: bold;
     color: green;
 }
-
     </style>
 </head>
 <body>
+     <!-- Navbar -->
+     <nav class="navbar">
+        <div class="logo">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="footer.html">Footer</a></li>
+        </ul>
+        <div class="hamburger">☰</div>
+    </nav>
+
     <header>
         <h1>Contact Us</h1>
     </header>
@@ -80,13 +112,10 @@ button:hover {
             <form id="contactForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
-
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
-
                 <button type="submit">Send Message</button>
             </form>
             <p id="responseMessage"></p>
@@ -96,22 +125,18 @@ button:hover {
         document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("contactForm");
     const responseMessage = document.getElementById("responseMessage");
-
     form.addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent form from actually submitting
-
         // Get form values
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
-
         // Simple validation
         if (name === "" || email === "" || message === "") {
             responseMessage.style.color = "red";
             responseMessage.textContent = "Please fill in all fields!";
             return;
         }
-
         responseMessage.style.color = "green";
         responseMessage.textContent = "Thank you! Your message has been sent.";
         
@@ -119,7 +144,9 @@ button:hover {
         form.reset();
     });
 });
-
     </script>
 </body>
 </html>
+0 commit comments
+Comments
+0
